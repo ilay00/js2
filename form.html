@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+<head>
+<script>
+    function validate(form) {
+        var reason = "";
+
+        if (form.username.value == "" || /[^a-zA-z]/.test(form.username.value))
+            reason += "Ошибка имени";
+		if (form.mail.value == "" || /[^a-zA-z@.]/.test(form.mail.value))
+            reason += "Ошибка E-mail";
+        if (form.tel.value == "" || /[^0-9]/.test(form.tel.value))
+            reason += "Ошибка tel"; 
+	    if (form.password.value == "" || /[^0-9]/.test(form.password.value))
+            reason += "Ошибка пароля";
+
+        if (reason == "")
+            return true;  
+        else {
+            alert(reason);  
+			document.getElementById('name').style.borderColor='#e52213';
+			document.getElementById('name1').style.borderColor='#e52213';
+			document.getElementById('name2').style.borderColor='#e52213';
+			document.getElementById('name3').style.borderColor='#e52213';
+			  
+            return false;
+        }
+    }
+</script>
+</head>
+<body>
+    <form  method="post" onSubmit="return validate(this)">
+        <span>Name:<input id="name" name="username" type="text" /></span><br>  <br>
+		<span>Mail:<input id="name1" name="mail" type="mail" /></span><br><br>
+		<span>Tel:<input id="name2" name="tel" type="text" /></span><br><br>
+        <span>Password:<input id="name3" name="password" type="password" /></span><br><br>
+        <input name="submit" value="Send" type="submit" />
+    </form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
